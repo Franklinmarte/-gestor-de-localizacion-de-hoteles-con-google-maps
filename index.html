@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width = device-width, initial-scale=1" charset="utf-8">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script type="text/javascript" src="funciones.js"></script>
+
+	<style type="text/css">
+	#RegistrarHotel, #MapaRegistro
+	{
+		width: 100%;
+		height: 100%;
+		padding: 0;
+	}
+	#MapaRegistro, #mapaIndependiente  {
+        width: 100%;
+        height: 300px;
+        padding: 0;
+    }
+    
+
+	</style>
+	<title>Agregar Hoteles a google Map</title>
+</head>
+<body>
+	<div data-role="page" id="paginaInicio">
+		<div data-role="header">
+			<h1>Gestion Hotel</h1>
+		</div>
+		<div data-role="content">
+			<a data-role="button" class="btnRegistrar">Registrar Hotel</a>
+			<a href="#allHotel" data-role="button" class="btnVerHoteles">Ver Hoteles</a>
+		</div>
+		<div data-role="footer">
+			<h2>Gestion Hotel</h2>
+		</div>
+	</div>
+	<div data-role="page" id="RegistrarHotel">
+		<div data-role="header">
+			<h1>Registrar Hotel</h1>
+		</div>
+		<div data-role="content">
+			<form>
+				<div class="ul-field-contain">
+					<label for="nombre">Nombre de hotel:</label>
+					<input type="text" name="nombre" id="nombre">
+				</div> 
+				<div class="ul-field-contain">
+					<label for="Ubicacion">Ubicacion</label>
+				</div>
+				<div>
+					<div data-role="content" id="MapaRegistro">
+						
+					</div>
+				</div>
+				<label for="Ciudad">Ciudad</label>			
+				<input type="text" name="ciudad" id="ciudad">
+				<label for="Telefono">Telefono</label>
+				<input type="text" name="telefono" id="telefono">
+				<label for="Estrellas">Estrellas</label>
+				<input type="text" name="estrellas" id="estrellas">
+				<a class="guardarHotel" data-role="button">Registrar Hotel</a>
+				<a class="volver" href="#paginaInicio" data-role="button">Volver</a>
+
+			</form>
+		</div>
+	</div>
+	<div data-role="page" id="allHotel">
+		<div data-role="header">
+			<h1>Lista de hoteles</h1>
+		</div>
+		<div data-role="content">
+			<div id="lista" ></div>
+			<a class="volver" href="#paginaInicio" data-role="button">Volver</a>
+		</div>
+	</div>
+	<div data-role="page" id="unidad">
+		<div data-role="header">
+			<h1 class="nombreHotel"></h1>
+		</div>
+		<div data-role="content">
+			<div id="listaHoteles">
+				<strong>Nombre de hotel:</strong><label id="nombreHotel"></label>
+				<strong>Ciudad:</strong><label id="ciudadHotel"></label>
+				<strong>Telefono:</strong><label id="telefonoHotel"></label>
+				<strong>estrellas:</strong><label id="estrellasHotel"></label>
+
+			</div>
+			<div data-role="content" id="mapaIndependiente">
+				
+			</div>
+			<a href="#allHotel" class="ui-btn">Ver lista de hoteles</a>
+		</div>
+	</div>
+</body>
+</html>
